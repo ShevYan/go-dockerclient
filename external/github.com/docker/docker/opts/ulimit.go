@@ -3,7 +3,7 @@ package opts
 import (
 	"fmt"
 
-	"github.com/fsouza/go-dockerclient/external/github.com/docker/docker/pkg/ulimit"
+	"github.com/ShevYan/go-dockerclient/external/github.com/docker/docker/pkg/ulimit"
 )
 
 // UlimitOpt defines a map of Ulimits

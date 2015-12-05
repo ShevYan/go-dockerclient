@@ -6,8 +6,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/fsouza/go-dockerclient/external/github.com/Sirupsen/logrus"
-	derr "github.com/fsouza/go-dockerclient/external/github.com/docker/docker/errors"
+	"github.com/ShevYan/go-dockerclient/external/github.com/Sirupsen/logrus"
+	derr "github.com/ShevYan/go-dockerclient/external/github.com/docker/docker/errors"
 )
 
 // read-write modes

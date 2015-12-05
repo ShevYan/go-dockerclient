@@ -6,7 +6,7 @@ package errors
 import (
 	"net/http"
 
-	"github.com/fsouza/go-dockerclient/external/github.com/docker/distribution/registry/api/errcode"
+	"github.com/ShevYan/go-dockerclient/external/github.com/docker/distribution/registry/api/errcode"
 )
 
 var (
