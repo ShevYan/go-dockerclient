@@ -810,6 +810,27 @@ func (c *Client) Stats(opts StatsOptions) (retErr error) {
 	return nil
 }
 
+type NoStreamStatsOptions struct {
+	ContainerId     string
+}
+
+func (c *Client) NoStreamStats(opts NoStreamStatsOptions) (*Stats, error) {
+	path := "/containers/" + opts.ContainerId + "/stats?stream=0"
+	resp, err := c.do("GET", path, doOptions{})
+	if err != nil {
+		if e, ok := err.(*Error); ok && e.Status == http.StatusNotFound {
+			return nil, &NoSuchContainer{ID: opts.ContainerId}
+		}
+		return nil, err
+	}
+	defer resp.Body.Close()
+	var stats Stats
+	if err := json.NewDecoder(resp.Body).Decode(&stats); err != nil {
+		return nil, err
+	}
+	return &stats, nil
+}
+
 // KillContainerOptions represents the set of options that can be used in a
 // call to KillContainer.
 //
